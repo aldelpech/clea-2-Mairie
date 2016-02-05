@@ -18,22 +18,24 @@
 		<div class="wrap">
 
 			<header <?php hybrid_attr( 'header' ); ?>>
+				<div class="wrap">
+					<?php if ( function_exists( 'jetpack_has_site_logo' ) && jetpack_has_site_logo() ) {
+						jetpack_the_site_logo();
+					}
+					
+					if ( display_header_text() ) : // If user chooses to display header text. ?>
 
-				<?php if ( function_exists( 'jetpack_has_site_logo' ) && jetpack_has_site_logo() ) {
-					jetpack_the_site_logo();
-				}
-				
-				if ( display_header_text() ) : // If user chooses to display header text. ?>
+						<div id="branding">
+							<?php hybrid_site_title(); ?>
+							<?php hybrid_site_description(); ?>
+						</div><!-- #branding -->
 
-					<div id="branding">
-						<?php hybrid_site_title(); ?>
-						<?php hybrid_site_description(); ?>
-					</div><!-- #branding -->
+					<?php endif; // End check for header text. ?>
 
-				<?php endif; // End check for header text. ?>
-
+					<?php dynamic_sidebar( 'inside-header' ); ?>
+										
+				</div>
 				<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
-
 			</header><!-- #header -->
 
 			<?php if ( get_header_image() && !display_header_text() ) : // If there's a header image but no header text. ?>

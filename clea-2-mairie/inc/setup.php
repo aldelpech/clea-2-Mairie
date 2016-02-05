@@ -52,4 +52,12 @@ function clea_2_register_sidebars() {
 		)
 	);
 	
+		hybrid_register_sidebar(
+		array(
+			'id'          => 'inside-header',
+			'name'        => _x( 'Inside Header', 'sidebar', 'stargazer' ),
+			'description' => __( 'A sidebar displayed inside the header', 'stargazer' )
+		)
+	);
+	
 }

@@ -10,7 +10,7 @@ get_header(); // Loads the header.php template. ?>
 	
 <div id="sidebar-before-front-page" class="sidebar">
 
-	<?php dynamic_sidebar( 'mairie-before-front-page' ); ?>
+	<?php dynamic_sidebar( 'before-front-page' ); ?>
 
 </div>	
 <!--  end  sidebar-before-front-page area -->
