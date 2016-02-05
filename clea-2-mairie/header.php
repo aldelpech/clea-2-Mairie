@@ -32,7 +32,11 @@
 
 					<?php endif; // End check for header text. ?>
 
-					<?php dynamic_sidebar( 'inside-header' ); ?>
+
+	
+					<?php get_sidebar( 'inside-header' );  ?>
+	
+					
 										
 				</div>
 				<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>

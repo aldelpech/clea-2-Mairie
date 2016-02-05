@@ -6,13 +6,10 @@
 
 get_header(); // Loads the header.php template. ?>
 
-	<!--  begin sidebar-before-front-page area -->
-	
-<div id="sidebar-before-front-page" class="sidebar">
+<!--  begin sidebar-before-front-page area -->
 
-	<?php dynamic_sidebar( 'before-front-page' ); ?>
+<?php get_sidebar( 'before-front-page' );  ?>
 
-</div>	
 <!--  end  sidebar-before-front-page area -->
 
 <?php
