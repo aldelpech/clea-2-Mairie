@@ -52,8 +52,7 @@
 /* ====== jetpack site logo  ====== */
 
 img.site-logo.attachment-medium {
-    max-width: 10%;
-    float: left;
+    max-width: 120px;
     margin: 1%;
 }
 
@@ -63,47 +62,48 @@ header#header .wrap {
     margin-right: 5%;
 }
 
+.site-header .wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+aside#sidebar-inside-header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+	align-items: center;
+}
+
+
 
 /* ====== search form in header  ====== */
-@media only screen and (min-width: 800px) {
-	.site-header .search-toggle {
-		float: left;
-	}
-	
-	.site-header .search-form {
-		position: absolute;
-		top: -1px;
-		right: 0;
-		height: 34px;
-		padding: 0 10px;
-		line-height: 34px;
-		box-sizing: border-box;
-	}
-	
-	.site-header .search-toggle:before {
-		content: '\f400';
-		font-size: 20px;
-		cursor: pointer;
-		padding: 0 0 1px;
-		vertical-align: top;
-	}
-	
-	.site-header .search-field {
-		margin-left: -2px;
+
+.site-header .widget_search input[type=search] {
 		display: inline-block;
-		padding: 7px 8px;
-		width: 200px;
-		height: 34px;
-		border-width: 1px;
-		font-size: .9375rem;
-		opacity: 1;
-		box-sizing: border-box;
-	}
+		width: 75%;
+}
+
+.site-header .widget_search>.search-form {
+    padding: 0; 
+    margin: 0;
+}
+
+.site-header ul#menu-reseaux-sociaux {
+    margin: 0;
+}
+
+
+/* ====== Header image  ====== */
+@media only screen and (min-width: 800px) {
 
 	.header-image {
 		width: 100%;
 		max-height: 400px;
 	}
+	
+	
 }
 
 
