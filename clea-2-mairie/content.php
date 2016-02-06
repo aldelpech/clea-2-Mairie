@@ -1,34 +1,60 @@
 
 
-	<?php if ( is_singular( get_post_type() ) ) { ?>
-	<article <?php hybrid_post_attributes(); ?>>
+	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
+	
+		<article <?php hybrid_attr( 'post' ); ?>>
+		
 		<header class="entry-header">
-			<?php echo apply_atomic_shortcode( 'entry_title', the_title( '<h1 class="entry-title">', '</h1>', false ) ); ?>
-			<?php echo apply_atomic_shortcode( 'entry_byline', '<div class="entry-byline">' . __( 'Published by [entry-author] on [entry-published] [entry-comments-link before=" | "] [entry-edit-link before=" | "]', 'clea-base' ) . '</div>' ); ?>
+
+			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
+
+			<div class="entry-byline">
+				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
+				<?php if ( function_exists( 'ev_post_views' ) ) ev_post_views( array( 'text' => '%s' ) ); ?>
+				<?php edit_post_link(); ?>
+			</div><!-- .entry-byline -->
+
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
+		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
-			<?php wp_link_pages( array( 'before' => '<p class="page-links">' . __( 'Pages:', 'clea-base' ), 'after' => '</p>' ) ); ?>
+			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php echo apply_atomic_shortcode( 'entry_meta', '<div class="entry-meta">' . __( '[entry-terms taxonomy="category" before="Posted in "] [entry-terms before="Tagged "]', 'clea-base' ) . '</div>' ); ?>
-		</footer><!-- .entry-footer -->		
-		
-	</article><!-- .hentry -->
-	<?php } else { ?>
-	<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
+			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'text' => __( 'Posted in %s', 'stargazer' ) ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'text' => __( 'Tagged %s', 'stargazer' ), 'before' => '<br />' ) ); ?>
+		</footer><!-- .entry-footer -->
 
-		<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>
-		<span class="categories"><?php the_category(' '); ?></span>
+	<?php else : // If not viewing a single post. ?>
+
+		<article <?php hybrid_attr( 'post bloc-article' ); ?>>
+
+
 		<header class="entry-header">
-			<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h3"]' ); ?>
+
+			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
+			
+			<span class="categories"><?php the_category(' '); ?></span>
+			
+			<div class="entry-byline">
+				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+				<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
+				<?php edit_post_link(); ?>
+			</div><!-- .entry-byline -->
+
 		</header><!-- .entry-header -->
-		<span class="entry-summary"><?php echo(get_the_excerpt()); ?> <a class="read-more" href="<?php the_permalink(); ?>">Lire L'article</a></span>
+
+		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+		
+		<div <?php hybrid_attr( 'entry-summary' ); ?>>
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
 
 
-		</p>
-	</article><!-- .hentry -->
-	<?php } ?>
+	<?php endif; // End single post check. ?>
 
+</article><!-- .entry -->

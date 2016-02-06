@@ -58,30 +58,13 @@ $loop = new WP_Query(
 
 		<?php $loop->the_post(); // Loads the post data. ?>
 
-			<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
-
-			<header class="entry-header">
-
-				<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-
-				<div class="entry-byline">
-					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
-					<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-					<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
-					<?php edit_post_link(); ?>
-				</div><!-- .entry-byline -->
-
-			</header><!-- .entry-header -->
-
-			<div <?php hybrid_attr( 'entry-summary' ); ?>>
-				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
+			<?php hybrid_get_content_template(); // Loads the content/*.php template. ?>
 
 	<?php endwhile; // End found posts loop. ?>
 	
 <?php endif; // End check for posts. ?>
 
-<a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">Tous les articles du Blog</a>
+<a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">Voir tous les articles</a>
 
 <?php wp_reset_query(); ?>	
 </main><!-- #content -->

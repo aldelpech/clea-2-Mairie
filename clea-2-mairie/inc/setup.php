@@ -26,7 +26,10 @@ add_action( 'init', 'clea_2_register_subsidiary_menu', 5 );
 
 # Register sidebars.
 add_action( 'widgets_init', 'clea_2_register_sidebars', 5 );
- 
+
+# Change Read More link in Excerpts
+add_filter('excerpt_more', 'clea_2_new_excerpt_more');
+
 /*******************************************
 * Register a new menu 
 *******************************************/
@@ -61,3 +64,21 @@ function clea_2_register_sidebars() {
 	);
 	
 }
+
+/*******************************************
+* Change Read More link in Excerpts 
+*******************************************/
+function clea_2_new_excerpt_more($more) {
+
+   global $post;
+
+   $rm_text = __( 'La suite &raquo;', 'stargazer' ) ;
+   return '… <a class="more-link" href="'. get_permalink($post->ID) . '">' . $rm_text . '</a>';
+
+}
+
+
+
+
+
+?>
