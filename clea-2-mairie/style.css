@@ -126,6 +126,17 @@ aside#sidebar-inside-header {
 		max-width: 1075px;
 	}
 
+	#main {
+		max-width: 1075px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+}
+
+/* ====== front page "tous les articles" ====== */
+h3.widget-title.font-headlines.articles>.wrap::before {
+    content: "\f425";
 }
 
 /********************************************************************************************************
@@ -143,6 +154,81 @@ aside#sidebar-inside-header {
  ********************************************************************************************************/
 
 /* ======  ====== */
+/* ====== abonnez-vous à la newsletter ====== */
+h3.widget-title.font-headlines.newsletter>.wrap::before {
+    content: "\f465";
+}
+
+/* style the "abonnez-vous" widget in primary sidebar */
+
+#mc_embed_signup {
+    /* background: #dcc02a; */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+	padding-bottom: 10px;
+	border: 3px dotted #220a60;
+}
+
+#mc_embed_signup h2 {
+    text-align: center;
+}
+
+.mc-field-group label {
+    display: none;
+}
+
+
+.mc-field-group input {
+    border: 1px solid #220a60;
+    width: 90%;
+    background: #f3f3f3;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+	margin-right: auto;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+input#mc-embedded-subscribe {
+    box-sizing: border-box;
+    width: 60%;
+    display: block;
+    margin-left: auto;
+	margin-right: auto;
+    background-color: #220a60;
+    color: #dcc02a;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+p.home-subscribe {
+	font-size: 80%;
+    line-height: 1.1;
+    font-style: italic;
+    margin-top: 15px;
+    width: 90%;
+    text-align: center;
+    text-align: -webkit-center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+p.mc-subscribe {
+    text-align: -webkit-center;
+    text-align: center;
+}
+
+
+
 
 /********************************************************************************************************
  * 5 - Comments Template
@@ -187,15 +273,116 @@ aside#sidebar-inside-header {
 	}
 }
 
+/* ====== Affichage events sur page d'accueil ====== */
+
+#sidebar-before-front-page ol.tribe-list-widget {
+	display: -moz-box;        
+	display: -ms-flexbox;   
+	display: -webkit-flex;   
+	display: flex;   
+    flex-direction: row;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media only screen and (min-width: 800px) {
+	
+	#sidebar-before-front-page .tribe-events-list-widget ol li  {
+		flex-basis: 23%;
+		margin-bottom: 0;
+	}
+
+}
+
+@media only screen and (max-width: 800px) {
+	
+	#sidebar-before-front-page .tribe-events-list-widget ol li  {
+		flex-basis: 48%;
+		margin-bottom: 0;
+	}
+
+}
+
+#sidebar-before-front-page .tribe-events-list-widget .tribe-events-event-image {
+	margin-bottom: 0; 
+    text-align: center; 
+}
+
+#sidebar-before-front-page .tribe-events-list-widget .tribe-events-event-image img {
+    max-width: 70%;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget h6.tribe-event-title {
+    font-size: 1.2em;
+	border-bottom: none;
+    padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget section.resume-event p {
+	margin: 0 0 5px 0;
+	font-size: 90%;
+    line-height: 1.1;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget .tribe-event-duration {
+    font-size: 80%;
+    font-weight: 600;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget .tribe-event-organisateur {
+    font-size: 80%;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget p.tribe-events-widget-link {
+    padding: 8px 20px 8px 20px;
+    background-color: #220a60;
+    text-align: center;
+    border-radius: 15px;
+    float: right;
+	margin-bottom: 0;
+	margin-right: 3%;
+}
+
+#sidebar-before-front-page .tribe-events-list-widget p.tribe-events-widget-link a {
+    color: #ffeb80;
+}
+
+/* ====== The events Calendar - month view style ====== */
+
+.tribe-events-month #tribe-events-header .tribe-events-sub-nav .tribe-events-nav-next a, .tribe-events-month #tribe-events-header .tribe-events-sub-nav li {
+    display: block;
+	font-size: 110%;
+}
+
+#tribe-events-bar {
+    display: none;
+}
+
+/* ====== Jetpack share buttons ====== */
+
+div.sharedaddy .sd-content ul li {
+	position: initial !important;
+    padding-left: 0 !important;
+    display: inline-block !important;
+}
+
+div.sharedaddy .sd-content {
+    display: inline-block;
+    margin-left: 10px;
+	width: 70%;
+}
+
+
+a.share-icon::after {
+    content: "" !important;
+    display: none !important;
+}
 		
 
 
 
-/*****************************************************
-*
-* Header
-*
-******************************************************/
 
 
 

@@ -50,7 +50,7 @@ $loop = new WP_Query(
 
 <main <?php hybrid_attr( 'content' ); ?>>
 
-<h2>Les derniers articles</h2>
+<h3 class="widget-title font-headlines articles">Les derniers articles</h3>
 
 <?php if ( $loop->have_posts() ) : // Checks if any posts were found. ?>
 
