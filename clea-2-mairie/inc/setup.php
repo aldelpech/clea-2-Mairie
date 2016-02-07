@@ -33,7 +33,6 @@ remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'wpse_custom_wp_trim_excerpt');
 
 
-
 /*******************************************
 * Register a new menu 
 *******************************************/
@@ -79,11 +78,10 @@ function clea_2_register_sidebars() {
 
 *******************************************/
 
-// Begin Excerpt Code
 function wpse_allowedtags() {
     // Add custom tags to this string
-	// <img>,<video>,<script>,<style>,<audio> are not in
-    return '<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>'; 
+	// <a>,<img>,<video>,<script>,<style>,<audio> are not in
+    return '<br>,<em>,<i>,<ul>,<ol>,<li>,<p>'; 
 }
 
 if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) : 
@@ -91,7 +89,12 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
     function wpse_custom_wp_trim_excerpt($wpse_excerpt) {
 		$raw_excerpt = $wpse_excerpt;
 		
-        // if ( '' == $wpse_excerpt ) {  // use only if you want to change only the automatic excerpt
+		// text for the "read more" link
+		$rm_text = __( 'La suite &raquo;', 'stargazer' ) ;
+		$excerpt_end = ' <a class="more-link" href="'. esc_url( get_permalink() ) . '">' . $rm_text . '</a>'; 
+		
+		
+        if ( '' == $wpse_excerpt ) {  
 
             $wpse_excerpt = get_the_content('');
             $wpse_excerpt = strip_shortcodes( $wpse_excerpt );
@@ -125,31 +128,29 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
                 }
 
             $wpse_excerpt = trim(force_balance_tags($excerptOutput));
-
-                // $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . '&nbsp;&raquo;&nbsp;' . sprintf(__( 'Read more about: %s &nbsp;&raquo;', 'wpse' ), get_the_title()) . '</a>'; 
-
-				$rm_text = __( 'La suite &raquo;', 'stargazer' ) ;
-				$excerpt_end = '… <a class="more-link" href="'. get_permalink($post->ID) . '">' . $rm_text . '</a>'; 
-			   
-			   $excerpt_more = apply_filters( 'excerpt_more', ' ' . $excerpt_end ); 
+		   
+				// $wpse_excerpt .= $excerpt_end ;
+				$excerpt_more = apply_filters( 'excerpt_more', ' ' . $excerpt_end ); 
 
                 $pos = strrpos($wpse_excerpt, '</');
                 if ($pos !== false) {
 					// Inside last HTML tag
-					$wpse_excerpt = substr_replace($wpse_excerpt, $excerpt_end, $pos, 0); /* Add read more next to last word */
+					$wpse_excerpt = substr_replace($wpse_excerpt, $excerpt_end, $pos, 0); // Add read more next to last word 
 				} else {
 					// After the content
-					$wpse_excerpt .= $excerpt_more; /*Add read more in new paragraph */
+					$wpse_excerpt .= $excerpt_more; //Add read more in new paragraph 
 				}
                 
-
             return $wpse_excerpt;   
 
-        /* } else {
-			return 'TTTT' . $wpse_excerpt;
+        } /* else {
+			return 'AAA ! ' . $raw_excerpt;
 		} */
 		
-        // return apply_filters('wpse_custom_wp_trim_excerpt', $wpse_excerpt, $raw_excerpt);
+		// add read more link to the manual extract
+		$wpse_excerpt .= $excerpt_end ;
+		// return the manual extract
+        return apply_filters('wpse_custom_wp_trim_excerpt', 'AAA ! ' . $wpse_excerpt, $raw_excerpt);
     }
   
 endif; 
