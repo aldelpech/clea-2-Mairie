@@ -150,7 +150,8 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 		// add read more link to the manual extract
 		$wpse_excerpt .= $excerpt_end ;
 		// return the manual extract
-        return apply_filters('wpse_custom_wp_trim_excerpt', 'AAA ! ' . $wpse_excerpt, $raw_excerpt);
+        // return apply_filters('wpse_custom_wp_trim_excerpt', 'AAA ! ' . $wpse_excerpt, $raw_excerpt);
+		return apply_filters('wpse_custom_wp_trim_excerpt', $wpse_excerpt, $raw_excerpt);
     }
   
 endif; 
