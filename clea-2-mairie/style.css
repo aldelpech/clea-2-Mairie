@@ -222,6 +222,7 @@ h3.widget-title.font-headlines.articles>.wrap::before {
 		margin-top: 6px;
 		line-height: 1.4;
 		font-weight: 600;
+		font-size: 90%;
 	}
 
 	.bloc-article .categories {
@@ -237,7 +238,7 @@ h3.widget-title.font-headlines.articles>.wrap::before {
 
 	.bloc-article .categories  a {
 		color: #220a60;
-		font-size: 110%;
+		/* font-size: 110%; */
 		font-weight: 600 ;
 		text-decoration: none;
 		font-variant: small-caps;

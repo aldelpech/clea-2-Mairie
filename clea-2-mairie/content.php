@@ -32,11 +32,13 @@
 
 		<article <?php hybrid_attr( 'post bloc-article' ); ?>>
 
-
+		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+		
 		<header class="entry-header">
 
-			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-			
+			<?php the_title( '<h3 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h3>' ); ?>
+
+						
 			<span class="categories"><?php the_category(' '); ?></span>
 			
 			<div class="entry-byline">
@@ -48,7 +50,7 @@
 
 		</header><!-- .entry-header -->
 
-		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+
 		
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 			<?php the_excerpt(); ?>
