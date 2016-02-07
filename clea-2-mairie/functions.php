@@ -5,7 +5,7 @@
  *
  * @package    clea-2-mairie
  * @subpackage Functions
- * @version    0.1.0
+ * @version    0.9.0
  * @since      0.1.0
  * @author     Anne-Laure Delpech <ald.kerity@gmail.com>  
  * @copyright  Copyright (c) 2015 Anne-Laure Delpech
