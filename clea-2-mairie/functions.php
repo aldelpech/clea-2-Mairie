@@ -47,6 +47,41 @@ function clea_mairie_theme_setup() {
 	// http://jetpack.me/
 	add_theme_support( 'site-logo', array( 'size' => 'medium' ) );
 	
+	// see http://themehybrid.com/board/topics/custom-header-extended-with-custom-child-theme-of-stargazer
+	add_filter( 'jetpack_photon_override_image_downsize', '__return_true' );
+
+	/* override stargazer custom header sizes */
+	add_theme_support(
+
+		'custom-header',
+
+		array(
+
+			'default-image'          => '%s/images/headers/orange-burn.jpg',
+
+			'random-default'         => false,
+
+			'width'                  => 1600,
+
+			'height'                 => 400,
+
+			'flex-width'             => true,
+
+			'flex-height'            => true,
+
+			'default-text-color'     => '252525',
+
+			'header-text'            => true,
+
+			'uploads'                => true,
+
+			'wp-head-callback'       => 'stargazer_custom_header_wp_head'
+
+		)
+
+	);
+	
+	
 }
  
 

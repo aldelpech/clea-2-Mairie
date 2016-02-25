@@ -86,13 +86,33 @@ aside#sidebar-inside-header {
 	align-items: center;
 }
 
+/* mega menu social (header and footer) */
+
+#mega-menu-wrap-social #mega-menu-social > li.mega-menu-item > a.mega-menu-link {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 20px;
+}
 
 
 /* ====== search form in header  ====== */
 
-.site-header .widget_search input[type=search] {
-		display: inline-block;
-		width: 75%;
+input.search-text {
+    width: 75%;
+    display: inline-block;
+}
+
+.widget_search input[type=submit] {
+    display: inline-block;
+    width: 20%;
+	color: #dcc02a ;
+	background: #dcc02a url(http://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg) no-repeat center 100%;
+	background-size: 40% 100%;
+	padding: 10px 1.5rem;
+    margin-left: -5px;
 }
 
 .site-header .widget_search>.search-form {
@@ -105,19 +125,29 @@ aside#sidebar-inside-header {
 }
 
 
-/* ====== Header image  ====== */
-@media only screen and (min-width: 800px) {
 
-	.header-image {
-		width: 100%;
-		max-height: 400px;
-		border-radius: 0;
-		-webkit-border-radius: 0;
-		-moz-border-radius: 0;
-	}
-	
-	
+
+
+
+/* ====== Header image  ====== */
+
+.header-image {
+	/* width: 100%; */
+	max-width: 1800 px;
+	max-height: 480px;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
 }
+
+section.clea-header-image {
+    width: 100%;
+    background-color: #dcc02a;
+}
+.display-header-text #header {
+    border-bottom: 0; 
+}	
+
 
 
 
