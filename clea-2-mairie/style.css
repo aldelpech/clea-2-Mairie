@@ -42,6 +42,10 @@
 * couleur foncée de police : violet foncé #220a60
 */
 
+.entry-content a, .entry-summary a, .comment-content a {
+    color: #dcc02a !important;
+}
+
 
 /********************************************************************************************************
  * 1 - Header and Footer
