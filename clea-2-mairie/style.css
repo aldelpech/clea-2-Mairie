@@ -346,6 +346,15 @@ img {
     -moz-border-radius: 15px;
 }
 
+figcaption.wp-caption-text.font-secondary {
+    position: initial;
+}
+
+.ltr .wp-caption .wp-caption-text {
+    margin-right: 0;
+    text-align: center;
+}
+
 
 /********************************************************************************************************
  * 4 - Sidebars and Widgets
