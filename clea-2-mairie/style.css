@@ -42,9 +42,15 @@
 * couleur foncée de police : violet foncé #220a60
 */
 
-.entry-content a, .entry-summary a, .comment-content a {
-    color: #dcc02a !important;
+#main.main a, aside#sidebar-subsidiary a {
+    color: #702192 ;
 }
+
+a.more-link {
+	font-style: italic;
+}
+
+
 
 
 /********************************************************************************************************
@@ -364,8 +370,15 @@ figcaption.wp-caption-text.font-secondary {
 
 /* ======  ====== */
 /* ====== abonnez-vous à la newsletter ====== */
-h3.widget-title.font-headlines.newsletter>.wrap::before {
+h2.widget-title.font-headlines.newsletter>.wrap::before {
     content: "\f465";
+}
+
+#mc_embed_signup h2 {
+	font-size: 100%;
+	text-align: center;
+	color: #702192;
+	margin-top: 5px;
 }
 
 /* style the "abonnez-vous" widget in primary sidebar */
