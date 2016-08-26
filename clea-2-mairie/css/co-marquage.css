@@ -24,3 +24,11 @@
 #cm-sidebar ul li:before {
     display: none;
 }
+
+#cm-sidebar .block {
+	overflow: inherit;
+}
+
+#comarquage h1, #comarquage h2, #comarquage h3 {
+	color: #702192;
+}
