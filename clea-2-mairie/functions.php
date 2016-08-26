@@ -42,10 +42,14 @@ function clea_mairie_theme_setup() {
 	add_theme_support( 'featured-header' );
 	add_theme_support( 'post-thumbnails' ); 
 
-	// Add support for the Site Logo plugin and the site logo functionality in JetPack
-	// https://github.com/automattic/site-logo
-	// http://jetpack.me/
-	add_theme_support( 'site-logo', array( 'size' => 'medium' ) );
+	// Add support for the Wordpress custom-Logo 
+	// see https://codex.wordpress.org/Theme_Logo
+	add_theme_support( 'custom-logo', array(
+		'height'      => 150,
+		'width'       => 116,
+		'flex-width'  => true,
+	) );
+	
 	
 	// see http://themehybrid.com/board/topics/custom-header-extended-with-custom-child-theme-of-stargazer
 	add_filter( 'jetpack_photon_override_image_downsize', '__return_true' );
