@@ -25,8 +25,6 @@ add_action( 'wp_enqueue_scripts', 'clea_mairie_remove_cleaner_gallery', 99 );
 $child_dir = trailingslashit( get_stylesheet_directory() );
 require_once( $child_dir . 'inc/setup.php' );
 
-
-
 function clea_mairie_theme_setup() {
 
 	/* Register and load scripts. */
@@ -96,8 +94,6 @@ function clea_mairie_remove_cleaner_gallery() {
 }
 
 
-	
- 
 function clea_mairie_enqueue_styles() {
 
 	// feuille de style pour l'impression
@@ -115,5 +111,6 @@ function clea_mairie_enqueue_scripts() {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
 }
+
 
 ?>

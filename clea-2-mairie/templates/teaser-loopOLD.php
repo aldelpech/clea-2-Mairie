@@ -11,20 +11,15 @@
 				$posts->the_post();
 				global $post;
 				?>
-				<article class="post bloc-article">
-				
+				<div id="su-post-<?php the_ID(); ?>" class="su-post">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<a class="img-hyperlink" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
+						<a class="su-post-thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
 					<?php endif; ?>
-					<header class="entry-header">
-						<h3 class="entry-title font-headlines" itemprop="headline"><a href="<?php the_permalink(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a></h3>
-					</header><!-- .entry-header -->
-		
-					<div class="entry-summary" itemprop="description">
-						<?php the_excerpt(); ?>
-					</div><!-- .entry-summary -->
-										
-				</article>				
+					<h3 class="su-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				</div>
+				<div class="su-post-excerpt">
+					<?php the_excerpt(); ?>
+				</div>				
 				<?php
 			endwhile;
 		}
@@ -34,4 +29,3 @@
 		}
 	?>
 </div>
-
